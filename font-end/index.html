@@ -1,0 +1,95 @@
+<html>
+	<head>
+		<style>
+			@font-face {
+				font-family: Sanfranlight;
+				src: url(sanfran/SanFranciscoText-Thin.otf);
+			}
+			body {
+				font: 100%/1.5 "Sanfranlight", Verdana, sans-serif;
+				-webkit-font-smoothing: antialiased;
+				background: #fff;
+				margin: 0;
+				padding: 0;
+			}
+			.main {
+  				display: table;
+  				width: 100%;
+  				height: 100vh;
+			}
+			.header {
+				display: table-cell;
+				text-align: center;
+				vertical-align: middle;
+			}
+			.title {
+				color: #f35626;
+  				background-image: -webkit-linear-gradient(92deg,#f35626,#feab3a);
+  				-webkit-background-clip: text;
+  				-webkit-text-fill-color: transparent;
+  				-webkit-animation: hue 60s infinite linear;
+  				font-size: 64px;
+			}
+			.sub-header {
+				font-size: 24px;
+				color: gray;
+				margin-bottom: 40px; 
+			}
+			.main button {
+				border: 2px solid #FF5283;
+				color: red; 
+				background: transparent;
+				border-radius: 3px;
+				font-size: 24px; 
+				padding-left: 20px;
+				padding-right: 20px; 
+				padding-top: 5px;
+				padding-bottom: 5px;
+			}
+			.main button:hover {
+				color: white;
+				background: #FF5283;
+				transition: all 150ms ease;
+			}
+			.section1 {
+				width: 100%;
+				height: 100vh;
+				background: #A3FFC9;
+				display: table;
+			}
+			.section1 .title {
+				position: relative;
+				left: 40px;
+				top: 40px;
+				font-size: 72px;
+			}
+			.section1 .sub-title {
+				position: relative;
+				left: 45px;
+				top: 45px;
+				font-size: 28px; 
+			}
+		</style>
+		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+	</head>	
+	<body>
+		<div class="main">
+			<div class="header">
+				<div class="title">An Introduction to Computing</div>
+				<div class="sub-header">Let's learn about the wide world of technology, one step at a time.</div>
+				<button onclick="nextslide('.section1', '.main');">Start</button>
+			</div>
+		</div>
+		<div class="section1">
+			<div class="title">Computers</div>
+			<div class="sub-title">What is a computer?</div>
+		</div>
+	</body>
+	<script>
+		var nextslide = function(to, from) {
+			$(from).fadeOut('fast', function() {
+				$(from).replaceWith($(to)).fadeIn('slow');
+			});
+		};	
+	</script>
+</html>
