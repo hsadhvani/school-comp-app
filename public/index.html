@@ -165,7 +165,7 @@
 		</style>
 		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 	</head>	
-	<body>
+	<body ng-app="school-app">
 		<div class="main">
 			<div class="header">
 				<div class="title">An Introduction to Computing</div>
@@ -173,31 +173,23 @@
 				<button onclick="nextslide('.section1', '.main');">Start</button>
 			</div>
 		</div>
-		<div class="section1">
-			<div class="title">Computers</div>
-			<div class="sub-title">What is a computer?</div>
-			<div class="content">Lorem ipsum dolor sit amet, qui utinam corpora te, vel iriure suavitate in, pro zril cetero an. Eum an quodsi vulputate reformidans, ipsum simul omittam ne sed. Vel ne ancillae probatus. Cum suavitate adipiscing in, dico solum tation et ius, te ipsum novum iudico mel. Sea mazim ignota dissentias et. Volumus adolescens ea usu, essent dissentiunt his et. Ei insolens forensibus sea. In nec scripta feugait albucius, et nam purto utinam facete. An has elitr forensibus, vim alterum vivendum laboramus an. Mei no nemore diceret aliquid, scripta dolores sit ex. Ad lobortis delicata sit, ne quando volutpat erroribus vis. Delenit constituam ne per. Nibh congue detraxit cu vim, probatus intellegat est ut, te rebum graeci reprimique sea.</div>
-			<img src="assets/computers.png">
-			<ul>
-				<li>Something</li>
-				<li>Something else</li>
-				<li>Where's the After After Party?</li>
-			</ul>
-			<button onclick="nextslide('.section2', '.section1');">Next Section</button>
-		</div>
-		<div class="section2">
-			<div class="title">Software</div>
-			<div class="sub-title">What is software?</div>
-			<div class="content">Lorem ipsum dolor sit amet, qui utinam corpora te, vel iriure suavitate in, pro zril cetero an. Eum an quodsi vulputate reformidans, ipsum simul omittam ne sed. Vel ne ancillae probatus. Cum suavitate adipiscing in, dico solum tation et ius, te ipsum novum iudico mel. Sea mazim ignota dissentias et. Volumus adolescens ea usu, essent dissentiunt his et. Ei insolens forensibus sea. In nec scripta feugait albucius, et nam purto utinam facete. An has elitr forensibus, vim alterum vivendum laboramus an. Mei no nemore diceret aliquid, scripta dolores sit ex. Ad lobortis delicata sit, ne quando volutpat erroribus vis. Delenit constituam ne per. Nibh congue detraxit cu vim, probatus intellegat est ut, te rebum graeci reprimique sea.</div>
-			<img src="assets/thecode.png">
-			<ul>
-				<li>Something</li>
-				<li>Something else</li>
-				<li>Where's the After After Party?</li>
-			</ul>
-			<button onclick="nextslide('.section3', 'section2');">Next Section</button>
-		</div>
+        <div ng-controller="contentCtrl">
+            <div ng-repeat="content in contentData">
+                <div class="{{content.class}}">
+                    <div class="title">{{content.title}}</div>
+                    <div class="sub-title">{{content.sub_title}}</div>
+                    <div class="content">{{content.content}}</div>
+                        <img ng-src="{{content.image}}">
+                    <ul ng-repeat="listItem in content.list">
+                        <li>{{listItem}}</li>
+                    </ul>
+                    <button ng-click="goToNextSlide(content);">Next Section</button>
+                </div>
+            </div>
+        </div>
+
 	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
 	<script>
 		var nextslide = function(to, from) {
 			$(from).fadeOut('fast', function() {
@@ -205,4 +197,38 @@
 			});
 		};	
 	</script>
+
+	<script>
+		var app = angular.module('school-app',[]);
+
+        app.controller('contentCtrl',function($scope){
+            $scope.contentData = [
+                {
+                    "class" : "section1",
+                    "title" : "An Introduction to Computing",
+                    "sub_title" : "What is a computer?",
+                    "content" : "Lorem ipsum dolor sit amet, qui utinam corpora te, vel iriure suavitate in, pro zril cetero an. Eum an quodsi vulputate reformidans, ipsum simul omittam ne sed. Vel ne ancillae probatus. Cum suavitate adipiscing in, dico solum tation et ius, te ipsum novum iudico mel. Sea mazim ignota dissentias et. Volumus adolescens ea usu, essent dissentiunt his et. Ei insolens forensibus sea. In nec scripta feugait albucius, et nam purto utinam facete. An has elitr forensibus, vim alterum vivendum laboramus an. Mei no nemore diceret aliquid, scripta dolores sit ex. Ad lobortis delicata sit, ne quando volutpat erroribus vis. Delenit constituam ne per. Nibh congue detraxit cu vim, probatus intellegat est ut, te rebum graeci reprimique sea.",
+                    "image" : "assets/computers.png",
+                    "list" : ["Something","Something else","Where's the After After Party?"],
+                    "next_section" : "section2"
+                },
+                {
+                    "class" : "section2",
+                    "title" : "Software",
+                    "sub-title" : "What is software?",
+                    "content" : "Lorem ipsum dolor sit amet, qui utinam corpora te, vel iriure suavitate in, pro zril cetero an. Eum an quodsi vulputate reformidans, ipsum simul omittam ne sed. Vel ne ancillae probatus. Cum suavitate adipiscing in, dico solum tation et ius, te ipsum novum iudico mel. Sea mazim ignota dissentias et. Volumus adolescens ea usu, essent dissentiunt his et. Ei insolens forensibus sea. In nec scripta feugait albucius, et nam purto utinam facete. An has elitr forensibus, vim alterum vivendum laboramus an. Mei no nemore diceret aliquid, scripta dolores sit ex. Ad lobortis delicata sit, ne quando volutpat erroribus vis. Delenit constituam ne per. Nibh congue detraxit cu vim, probatus intellegat est ut, te rebum graeci reprimique sea.",
+                    "image" : "assets/thecode.png",
+                    "list" : ["Something","Something else","Where's the After After Party?"],
+                    "next_section" : "section3"
+                }
+
+            ];
+
+            $scope.goToNextSlide = function(content){
+                nextslide("."+content.next_section,"."+content.class);
+            };
+        });
+	</script>
+
+
 </html>
