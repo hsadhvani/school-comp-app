@@ -1,15 +1,208 @@
-<!DOCTYPE html>
 <html>
-<head>
-	<title>Hello</title>
-</head>
-<body>
-<script src="https://fb.me/react-0.13.3.js"></script>
-<script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
-<script src="components/react1.jsx" type="text/jsx"></script>
-<script type="text/jsx">
-	var component = React.createElement(myComponent);
-	React.render(component,document.body);
-</script>
-</body>
+	<head>
+		<style>
+			@font-face {
+				font-family: Sanfranlight;
+				src: url(sanfran/SanFranciscoText-Thin.otf);
+			}
+			body {
+				font: 100%/1.5 "Sanfranlight", Verdana, sans-serif;
+				-webkit-font-smoothing: antialiased;
+				background: #fff;
+				margin: 0;
+				padding: 0;
+			}
+			.main {
+  				display: table;
+  				width: 100%;
+  				height: 100vh;
+			}
+			.header {
+				display: table-cell;
+				text-align: center;
+				vertical-align: middle;
+			}
+			.title {
+				color: #f35626;
+  				background-image: -webkit-linear-gradient(92deg,#f35626,#feab3a);
+  				-webkit-background-clip: text;
+  				-webkit-text-fill-color: transparent;
+  				-webkit-animation: hue 60s infinite linear;
+  				font-size: 64px;
+			}
+			.sub-header {
+				font-size: 24px;
+				color: gray;
+				margin-bottom: 40px; 
+			}
+			.main button {
+				border: 2px solid #FF5283;
+				color: red; 
+				background: transparent;
+				border-radius: 3px;
+				font-size: 24px; 
+				padding-left: 20px;
+				padding-right: 20px; 
+				padding-top: 5px;
+				padding-bottom: 5px;
+			}
+			.main button:hover {
+				color: white;
+				background: #FF5283;
+				transition: all 150ms ease;
+			}
+			.section1 {
+				width: 100%;
+				height: 100vh;
+				background: #A3FFC9;
+				display: table;
+			}
+			.section1 .title {
+				position: relative;
+				left: 40px;
+				top: 40px;
+				font-size: 72px;
+			}
+			.section1 .sub-title {
+				position: relative;
+				left: 45px;
+				top: 45px;
+				font-size: 28px; 
+			}
+			.section1 .content {
+				position: relative;
+				top: 60px;
+				left: 45px;
+				width: 40%;
+				display: inline-block;
+			}
+			.section1 img {
+				width: 50%;
+				float: right;
+				margin-right: 40px;
+			}
+			.section1 ul {
+				position: relative;
+				top: 60px;
+				left: 25px;
+			}
+			.section1 button {
+				position: relative;
+				top: 80px;
+				left: 45px;
+				border: 2px solid #FF5283;
+				color: red; 
+				background: transparent;
+				border-radius: 3px;
+				font-size: 24px; 
+				padding-left: 20px;
+				padding-right: 20px; 
+				padding-top: 5px;
+				padding-bottom: 5px;
+			}
+			.section1 button:hover {
+				color: white;
+				background: #FF5283;
+				transition: all 150ms ease;
+			}
+			.section2 {
+				width: 100%;
+				height: 100vh;
+				background: #CC4EB1;
+				display: table;
+			}
+			.section2 .title {
+				position: relative;
+				left: 40px;
+				top: 40px;
+				font-size: 72px;
+			}
+			.section2 .sub-title {
+				position: relative;
+				left: 45px;
+				top: 45px;
+				font-size: 28px; 
+				color: white;
+			}
+			.section2 .content {
+				position: relative;
+				top: 60px;
+				left: 45px;
+				width: 40%;
+				display: inline-block;
+				color: white;
+			}
+			.section2 img {
+				width: 50%;
+				float: right;
+				margin-right: 40px;
+			}
+			.section2 ul {
+				position: relative;
+				top: 60px;
+				left: 25px;
+				color: white;
+			}
+			.section2 button {
+				position: relative;
+				top: 80px;
+				left: 45px;
+				border: 2px solid white;
+				color: white; 
+				background: transparent;
+				border-radius: 3px;
+				font-size: 24px; 
+				padding-left: 20px;
+				padding-right: 20px; 
+				padding-top: 5px;
+				padding-bottom: 5px;
+			}
+			.section2 button:hover {
+				color: white;
+				background: #FF5283;
+				transition: all 150ms ease;
+			}
+		</style>
+		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+	</head>	
+	<body>
+		<div class="main">
+			<div class="header">
+				<div class="title">An Introduction to Computing</div>
+				<div class="sub-header">Let's learn about the wide world of technology, one step at a time.</div>
+				<button onclick="nextslide('.section1', '.main');">Start</button>
+			</div>
+		</div>
+		<div class="section1">
+			<div class="title">Computers</div>
+			<div class="sub-title">What is a computer?</div>
+			<div class="content">Lorem ipsum dolor sit amet, qui utinam corpora te, vel iriure suavitate in, pro zril cetero an. Eum an quodsi vulputate reformidans, ipsum simul omittam ne sed. Vel ne ancillae probatus. Cum suavitate adipiscing in, dico solum tation et ius, te ipsum novum iudico mel. Sea mazim ignota dissentias et. Volumus adolescens ea usu, essent dissentiunt his et. Ei insolens forensibus sea. In nec scripta feugait albucius, et nam purto utinam facete. An has elitr forensibus, vim alterum vivendum laboramus an. Mei no nemore diceret aliquid, scripta dolores sit ex. Ad lobortis delicata sit, ne quando volutpat erroribus vis. Delenit constituam ne per. Nibh congue detraxit cu vim, probatus intellegat est ut, te rebum graeci reprimique sea.</div>
+			<img src="assets/computers.png">
+			<ul>
+				<li>Something</li>
+				<li>Something else</li>
+				<li>Where's the After After Party?</li>
+			</ul>
+			<button onclick="nextslide('.section2', '.section1');">Next Section</button>
+		</div>
+		<div class="section2">
+			<div class="title">Software</div>
+			<div class="sub-title">What is software?</div>
+			<div class="content">Lorem ipsum dolor sit amet, qui utinam corpora te, vel iriure suavitate in, pro zril cetero an. Eum an quodsi vulputate reformidans, ipsum simul omittam ne sed. Vel ne ancillae probatus. Cum suavitate adipiscing in, dico solum tation et ius, te ipsum novum iudico mel. Sea mazim ignota dissentias et. Volumus adolescens ea usu, essent dissentiunt his et. Ei insolens forensibus sea. In nec scripta feugait albucius, et nam purto utinam facete. An has elitr forensibus, vim alterum vivendum laboramus an. Mei no nemore diceret aliquid, scripta dolores sit ex. Ad lobortis delicata sit, ne quando volutpat erroribus vis. Delenit constituam ne per. Nibh congue detraxit cu vim, probatus intellegat est ut, te rebum graeci reprimique sea.</div>
+			<img src="assets/thecode.png">
+			<ul>
+				<li>Something</li>
+				<li>Something else</li>
+				<li>Where's the After After Party?</li>
+			</ul>
+			<button onclick="nextslide('.section3', 'section2');">Next Section</button>
+		</div>
+	</body>
+	<script>
+		var nextslide = function(to, from) {
+			$(from).fadeOut('fast', function() {
+				$(from).replaceWith($(to)).fadeIn('slow');
+			});
+		};	
+	</script>
 </html>
