@@ -1,12 +1,27 @@
 <div>
     <div class="{{content.class}}">
-        <div class="title">{{content.title}}</div>
-        <div class="sub-title">{{content.sub_title}}</div>
-        <div class="content">{{content.content}}</div>
-            <img ng-src="{{content.image}}">
-        <ul ng-repeat="listItem in content.list">
-            <li>{{listItem}}</li>
-        </ul>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="sub-title">{{content.sub_title}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="content" ng-repeat="contentItem in content.content">
+                        <div>{{contentItem}}</div>
+                    </div>
+                    <ul ng-repeat="listItem in content.list">
+                        <li>{{listItem}}</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <img ng-src="{{content.image}}">
+                </div>
+            </div>
+        </div>
         <button ng-click="goToNextSlide(content);">Next Section</button>
     </div>
 </div>

@@ -1,6 +1,8 @@
+@import url(http://fonts.googleapis.com/css?family=Varela+Round);
+@import url(http://fonts.googleapis.com/css?family=Montserrat);
 @font-face {
 	font-family: Sanfranlight;
-	src: url(sanfran/SanFranciscoText-Thin.otf);
+	src: url(../sanfran/SanFranciscoText-Thin.otf);
 }
 body {
 	font: 100%/1.5 "Sanfranlight", Verdana, sans-serif;
@@ -32,6 +34,9 @@ body {
 	color: gray;
 	margin-bottom: 40px; 
 }
+button {
+	cursor: pointer;
+}
 .main button {
 	border: 2px solid #FF5283;
 	color: red; 
@@ -51,44 +56,45 @@ body {
 .section1 {
 	width: 100%;
 	height: 100vh;
-	background: #A3FFC9;
+	background: #385D8A;
 	display: table;
+	padding: 40px;
 }
 .section1 .title {
 	position: relative;
 	left: 40px;
 	top: 40px;
 	font-size: 72px;
+	padding: 40px;
 }
 .section1 .sub-title {
-	position: relative;
-	left: 45px;
-	top: 45px;
-	font-size: 28px; 
+	font-size: 48px; 
+	color: white;
+	margin-bottom: 20px;
+	font-family: 'Montserrat', sans-serif;
 }
 .section1 .content {
-	position: relative;
-	top: 60px;
-	left: 45px;
-	width: 40%;
-	display: inline-block;
+	font-family: 'Varela Round', sans-serif;
+	color: white;
+	display: block;
+    margin-bottom: 30px;
 }
 .section1 img {
-	width: 50%;
-	float: right;
-	margin-right: 40px;
+	width: 70%;
 }
 .section1 ul {
 	position: relative;
 	top: 60px;
 	left: 25px;
+	color: white;
+	font-family: 'Varela Round', sans-serif;
 }
 .section1 button {
 	position: relative;
 	top: 80px;
 	left: 45px;
 	border: 2px solid #FF5283;
-	color: red; 
+	color: white; 
 	background: transparent;
 	border-radius: 3px;
 	font-size: 24px; 
