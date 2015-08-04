@@ -25,6 +25,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
             templateUrl: "views/software/common_view.html",
             controller: "softwareCtrl"
         })
+        .when("/software/code", {
+            templateUrl: "views/software/section/code.html",
+            controller: "softwareCodeCtrl"
+        })
         .when("/intro", {
             templateUrl: "views/intro/common_view.html",
             controller: "introCtrl"
@@ -93,4 +97,9 @@ app.controller('hardwareCtrl',function($scope, Page){
             "next_section" : "",
             "next_page" : ""
         };
+});
+
+
+app.controller('softwareCodeCtrl',function(){
+    Page.setTitle("Introduction to Software");
 });
