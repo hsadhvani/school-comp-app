@@ -1,6 +1,26 @@
 var app = angular.module('school-app', ['ngRoute']);
 
 
+app.directive("contenteditable", function() {
+  return {
+    require: "ngModel",
+    link: function(scope, element, attrs, ngModel) {
+
+      function read() {
+        ngModel.$setViewValue(element.html());
+      }
+
+      ngModel.$render = function() {
+        element.html(ngModel.$viewValue || "");
+      };
+
+      element.bind("blur keyup change", function() {
+        scope.$apply(read);
+      });
+    }
+  };
+});
+
 app.factory('Page', function(){
   var title = 'Introduction';
   return {
@@ -26,7 +46,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
             controller: "softwareCtrl"
         })
         .when("/software/code", {
-            templateUrl: "views/software/section/code.html",
+            templateUrl: "views/software/code.html",
             controller: "softwareCodeCtrl"
         })
         .when("/intro", {
@@ -100,6 +120,85 @@ app.controller('hardwareCtrl',function($scope, Page){
 });
 
 
-app.controller('softwareCodeCtrl',function(){
+app.controller('softwareCodeCtrl',function($scope,Page){
     Page.setTitle("Introduction to Software");
+    $scope.functions = [
+        {
+            "name" : "updateColor",
+            "callFunction" : "updateColor",
+            "variableOne" : "newColor",
+            "content" : ["var contentHeading = document.getElementById('contentHeading');", "contentHeading.style.color = color;"],
+            "show" : false,
+            "output" : "",
+            "errorMessage" : { 
+                "showErrorMessage" : false,
+                "message" : ""
+            }
+        },
+        {
+            "name" : "addNumbers",
+            "callFunction" : "addNumbers",
+            "variableOne" : "numberOne",
+            "variableTwo" : "numberTwo",
+            "content" : [" return numberOne + numberTwo;"],
+            "show" : false,
+            "showOutput" : false,
+            "output" : "",
+            "errorMessage" : { 
+                "showErrorMessage" : false,
+                "message" : ""
+            }
+        }
+    ];
+    $scope.runFunction = function(what){
+        console.log(what);
+        if(what.variableOne && what.name == "updateColor"){
+            if(!checkValidColor(what.variableOne)){
+                what.errorMessage.showErrorMessage = true;
+                what.errorMessage.message = "Children!! "+ what.variableOne +" is not valid color.";
+            }
+            else{
+                what.errorMessage.showErrorMessage = false;
+                window[what.callFunction](what.variableOne);
+            }
+        }
+        else if(what.variableOne && what.variableTwo && what.name == "addNumbers"){
+            if(isNaN(what.variableOne) || isNaN(what.variableTwo)){
+                what.errorMessage.showErrorMessage = true;
+                what.errorMessage.message = "Children numbers!! Not sentences :)";
+            }
+            else{
+                what.showOutput = true; 
+                what.errorMessage.showErrorMessage = false;
+                what.output =  window[what.callFunction](parseInt(what.variableOne),parseInt(what.variableOne));
+            }
+           
+        }
+
+    };
+
 });
+
+function updateColor(newColor){
+    var contentHeading = document.getElementById('contentHeading');
+    contentHeading.style.color = newColor;
+}
+
+function addNumbers(numberOne, numberTwo){
+    return numberOne + numberTwo;
+}
+
+
+function checkValidColor(myColor){
+    var valid = $('#testColor').css('color');
+    
+    $('#testColor').css('color', myColor);
+    
+    if( valid== $('#testColor').css('color')) {
+        return false;
+    }
+    else { 
+        return true;
+        $('#testColor').css('color', valid ); 
+    }
+}

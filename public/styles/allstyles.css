@@ -165,3 +165,56 @@ button {
 	background: #FF5283;
 	transition: all 150ms ease;
 }
+.floatLeft{
+	float: left;
+}
+
+.termianlView{
+	color: #0f0;
+	background-color: #000000;
+	width: 600px;
+	height: 400px;
+	overflow: auto;
+}
+.arrowRight{
+	position: relative;
+	top: 4px;
+	height: 12px;
+	width: 8px;
+}
+
+.pad_t{
+	padding-top: 10px;
+}
+
+.pad_l{
+	padding-left: 10px;
+}
+
+.pad_l_3{
+	padding-left: 3px;
+}
+
+.pad_r{
+	padding-right: 10px;
+}
+
+.pad_b{
+	padding-bottom: 10px;
+}
+.pad_t{
+	padding-top: 10px;
+}
+
+.pointer{
+	cursor: pointer;
+}
+.fnContents{
+	margin-left: 23px;
+}
+.fnContent{
+	margin-left: 27px;
+}
+input.var{
+	
+}

@@ -4,13 +4,39 @@
 </div>
 
 <div class="termianlView">
-<div>
-<div class="floatLeft">function update(<span id="hoverExplain"  ng-mouseover="consoel.log('hello');" contenteditable>color</span>)</div>
-</div> <div class="floatLeft"></div>
-<div class="updateFnContent" ng-show="{{function.show}}">
-{
- var heading = document.getElementById('contentHeading');
- headset.style.color = color;
-}
+	<div ng-repeat="fn in functions" >
+		<div class="pad_t pad_l" ng-init="showThis=false">
+			<div class="floatLeft pointer">
+			<img class="arrowRight" src="/images/grey_arrow.png" ng-click="fn.show =  !fn.show"/>
+			</div>
+			<div class="floatLeft pad_l_3">function {{fn.name}}(<span ng-if="fn.variableOne" ng-model="fn.variableOne" contenteditable="true"></span>
+				<span ng-if="fn.variableTwo">,</span>
+				<span ng-if="fn.variableTwo" ng-model="fn.variableTwo" contenteditable="true"></span>)
+				<!--<span ng-repeat="variable in fn.variables">
+				<span id="hoverExplain" contenteditable="true" ng-model="variable"></span>{{$last ? '' : ', '}}</span>--> 
+			</div>
+			<button ng-click="runFunction(fn)" style="color:black;">Run</button>
+			</div> 
+			<br/>
+			<div class="fnContents">
+				<div class="fnDef" ng-show="fn.show">
+					{
+					<div ng-repeat="line in fn.content" class="fnContent">
+						{{line}}
+					</div>
+					}
+				</div>
+				<div class="fnOutput" ng-show="fn.showOutput">
+				Output : {{fn.output}}
+				</div>
+				<div class="fnError" ng-show="fn.errorMessage.showErrorMessage">
+					<span style="color:red;">Error : </span> {{fn.errorMessage.message}}
+				</div>
+			</div>
+
+		</div>
+	</div>
 </div>
+
+<div id="testColor" style="color:black">
 </div>
