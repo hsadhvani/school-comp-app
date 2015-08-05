@@ -183,7 +183,7 @@ app.controller('softwareCodeCtrl',function($scope,Page){
             else{
                 what.showOutput = true; 
                 what.errorMessage.showErrorMessage = false;
-                what.output =  window[what.callFunction](parseInt(what.variableOne),parseInt(what.variableOne));
+                what.output =  window[what.callFunction](parseInt(what.variableOne),parseInt(what.variableTwo));
             }
            
         }
