@@ -46,7 +46,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
             controller: "noCtrl"
         })
         .when("/software", {
-            templateUrl: "views/software/common_view.html",
+            templateUrl: "views/common_view.html",
             controller: "softwareCtrl"
         })
         .when("/software/code", {
@@ -54,12 +54,12 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
             controller: "softwareCodeCtrl"
         })
         .when("/intro", {
-            templateUrl: "views/intro/common_view.html",
+            templateUrl: "views/common_view.html",
             controller: "introCtrl"
 
         })
         .when("/hardware", {
-            templateUrl: "views/hardware/common_view.html",
+            templateUrl: "views/common_view.html",
             controller: "hardwareCtrl"
         })
         .otherwise({redirectTo: "/"});
@@ -89,7 +89,8 @@ app.controller('introCtrl', function ($scope, Page) {
         "image": "assets/computers.png",
         "list": ["TV’s", "Cellphones", "Automobiles", "iPads/Tablets", "Calculators", "Wireless Routers", "Smart Watches"],
         "next_section": "section2",
-        "next_page": "software"
+        "next_page": "software",
+        "buttonText" : "Next Section"
     }
 });
 
@@ -104,12 +105,15 @@ app.controller('softwareCtrl', function ($scope, Page) {
         "image": "assets/thecode.png",
         "list": ["Something", "Something else", "Where's the After After Party?"],
         "next_section": "section1",
-        "next_page": "software/code"
+        "next_page": "software/code",
+        "buttonText" : "Learn to Code"
+
     };
 
 });
 
 app.controller('hardwareCtrl', function ($scope, Page) {
+    nextslide('.section2', '.main');
     Page.setTitle("Introduction to Hardware");
     $scope.content = {
         "class": "section1",
@@ -119,7 +123,9 @@ app.controller('hardwareCtrl', function ($scope, Page) {
         "image": "assets/thecode.png",
         "list": ["Something", "Something else", "Where's the After After Party?"],
         "next_section": "",
-        "next_page": ""
+        "next_page": "",
+        "buttonText" : "Next Section"
+
     };
 });
 
