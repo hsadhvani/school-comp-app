@@ -80,7 +80,8 @@ button {
     margin-bottom: 30px;
 }
 .section1 img {
-	width: 70%;
+	max-height: 100%;
+    max-width: 200px;
 }
 .section1 ul {
 	position: relative;

@@ -1,5 +1,4 @@
-var app = angular.module('school-app', ['ngRoute']);
-
+var app = angular.module('school-app', ['ngRoute','ngAnimate', 'fmp-card']);
 
 app.directive("contenteditable", function() {
   return {
@@ -82,7 +81,7 @@ app.controller('introCtrl',function($scope, Page){
             "title" : "An Introduction to Computers",
             "sub_title" : "What is a computer?",
             "content" : ["At the most basic level, a computer simply takes some input and produces some output otherwise known as I/O.  You can think of a calculator as a computer.  It accepts numbers as input, does something with that input and produces an output.", " Computers can be quite large and very small depending on what they use them for. They can be the size of your finger, or the size of a car. (PICTURES – Intel Watson/Supercomputer)", "Almost everything in the world that you use today that uses electricity has some kind of computer inside of it.  Some examples of devices that depend on various types of computers that you may find in your everyday life include:"],
-            "image" : "assets/computers.png",
+            "images" : ["assets/imac.png", "assets/tablet.png", "assets/macbook.png", "assets/chromecast.png", "assets/android.png","assets/amazon.png","assets/ipad.png","assets/tv.png","assets/calculator.png","assets/civic.png","assets/pc.png","assets/watch.png"],
             "list" : ["TV’s","Cellphones","Automobiles", "iPads/Tablets", "Calculators", "Wireless Routers", "Smart Watches"],
             "next_section" : "section2",
             "next_page" : "software"

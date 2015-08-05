@@ -18,7 +18,15 @@
                     </ul>
                 </div>
                 <div class="col-lg-6">
-                    <img ng-src="{{content.image}}">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-4" ng-repeat="imageItem in content.images track by $index">
+                                <fmp-card class="my-card" id="card-1" suffix="1" image="{{imageItem}}" small-card-width="200px" small-card-height="300px">
+                                    <div class="back-text">{{leftBackText}}</div>
+                                </fmp-card>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
