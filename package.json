@@ -10,8 +10,9 @@
   "author": "hsadhvani, brandongiraldo",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.13.3",
     "express": "^4.13.1",
-    "body-parser": "^1.13.3"
+    "morgan": "^1.6.1"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
