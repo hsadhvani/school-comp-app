@@ -135,6 +135,18 @@ app.controller('softwareCodeCtrl',function($scope,Page){
                 "message" : ""
             }
         },
+                {
+            "name" : "updateBackgroundColor",
+            "callFunction" : "updateBackgroundColor",
+            "variableOne" : "newColor",
+            "content" : ["document.body.style.backgroundColor = newColor;"],
+            "show" : false,
+            "output" : "",
+            "errorMessage" : { 
+                "showErrorMessage" : false,
+                "message" : ""
+            }
+        },
         {
             "name" : "addNumbers",
             "callFunction" : "addNumbers",
@@ -148,11 +160,12 @@ app.controller('softwareCodeCtrl',function($scope,Page){
                 "showErrorMessage" : false,
                 "message" : ""
             }
-        }
+        },
+
     ];
     $scope.runFunction = function(what){
         console.log(what);
-        if(what.variableOne && what.name == "updateColor"){
+        if(what.variableOne && (what.name == "updateColor" || what.name == "updateBackgroundColor")){
             if(!checkValidColor(what.variableOne)){
                 what.errorMessage.showErrorMessage = true;
                 what.errorMessage.message = "Children!! "+ what.variableOne +" is not valid color.";
@@ -182,6 +195,11 @@ app.controller('softwareCodeCtrl',function($scope,Page){
 function updateColor(newColor){
     var contentHeading = document.getElementById('contentHeading');
     contentHeading.style.color = newColor;
+}
+
+
+function updateBackgroundColor(newColor){
+    document.body.style.backgroundColor = newColor;
 }
 
 function addNumbers(numberOne, numberTwo){

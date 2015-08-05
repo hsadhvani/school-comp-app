@@ -215,6 +215,8 @@ button {
 .fnContent{
 	margin-left: 27px;
 }
-input.var{
-	
+.runButton{
+	color:white; 
+	font-weight:bold; 
+	margin-left:5px;
 }
