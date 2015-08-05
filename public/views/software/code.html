@@ -1,42 +1,58 @@
-<div id="contentHeading">
-	Kids now it's time to challenge yourself. Your learned what a programming language is previously. Now let's try to do some basic coding. 
-	Your computer's browser like Google Chrome/Firefox/Internet Explorer/Safari understand only a few languages which is mainly HTML, CSS and JavaScript. You don't need to worry about these languages and you don't speak them. We will learn a basic programming concept using this analogy. 
-</div>
-
-<div class="termianlView">
-	<div ng-repeat="fn in functions" >
-		<div class="pad_t pad_l" ng-init="showThis=false">
-			<div class="floatLeft pointer">
-			<img class="arrowRight" src="/images/grey_arrow.png" ng-click="fn.show =  !fn.show"/>
+<div>
+	<div class="section2">
+		<div class="title">Software</div>
+		<div class="sub-title">Programming</div>
+		<div class="content">
+			<div id="contentHeading">
+			Kids now it's time to challenge yourself. Your learned what a programming language is previously. Now let's try to do some basic coding.
+			Your computer's browser like Google Chrome/Firefox/Internet Explorer/Safari understand only a few languages which is mainly HTML, CSS and JavaScript. You don't need to worry about these languages and you don't speak them. We will learn a basic programming concept using this analogy.
 			</div>
-			<div class="floatLeft pad_l_3">function {{fn.name}}(<span ng-if="fn.variableOne" ng-model="fn.variableOne" contenteditable="true"></span>
-				<span ng-if="fn.variableTwo">,</span>
-				<span ng-if="fn.variableTwo" ng-model="fn.variableTwo" contenteditable="true"></span>)
-				<!--<span ng-repeat="variable in fn.variables">
-				<span id="hoverExplain" contenteditable="true" ng-model="variable"></span>{{$last ? '' : ', '}}</span>--> 
-			</div>
-			<span ng-click="runFunction(fn)" class="pointer runButton floatLeft">Run This</span>
-			</div> 
-			<br/>
-			<div class="fnContents">
-				<div class="fnDef" ng-show="fn.show">
-					{
-					<div ng-repeat="line in fn.content" class="fnContent">
-						{{line}}
+		</div>
+		<img ng-src="{{content.image}}">
+		<ul ng-repeat="listItem in content.list">
+			<li>{{listItem}}</li>
+		</ul>
+		<button ng-click="goToNextSlide(content);">Next Section</button>
+		<div class="termianlView">
+			<div ng-repeat="fn in functions" >
+				<div class="pad_t pad_l" ng-init="showThis=false">
+					<div class="floatLeft pointer">
+						<img class="arrowRight" src="/images/grey_arrow.png" ng-click="fn.show =  !fn.show"/>
 					</div>
-					}
+					<div class="floatLeft pad_l_3">function {{fn.name}}(<span ng-if="fn.variableOne" ng-model="fn.variableOne" contenteditable="true"></span>
+						<span ng-if="fn.variableTwo">,</span>
+						<span ng-if="fn.variableTwo" ng-model="fn.variableTwo" contenteditable="true"></span>)
+						<!--<span ng-repeat="variable in fn.variables">
+                        <span id="hoverExplain" contenteditable="true" ng-model="variable"></span>{{$last ? '' : ', '}}</span>-->
+					</div>
+					<span ng-click="runFunction(fn)" class="pointer runButton floatLeft">Run This</span>
 				</div>
-				<div class="fnOutput" ng-show="fn.showOutput">
-				Output : {{fn.output}}
+				<br/>
+				<div class="fnContents">
+					<div class="fnDef" ng-show="fn.show">
+						{
+						<div ng-repeat="line in fn.content" class="fnContent">
+							{{line}}
+						</div>
+						}
+					</div>
+					<div class="fnOutput" ng-show="fn.showOutput">
+						Output : {{fn.output}}
+					</div>
+					<div class="fnError" ng-show="fn.errorMessage.showErrorMessage">
+						<span style="color:red;">Error : </span> {{fn.errorMessage.message}}
+					</div>
 				</div>
-				<div class="fnError" ng-show="fn.errorMessage.showErrorMessage">
-					<span style="color:red;">Error : </span> {{fn.errorMessage.message}}
-				</div>
-			</div>
 
+			</div>
 		</div>
 	</div>
+	</div>
 </div>
+
+
+
+
 
 <div id="testColor" style="color:black">
 </div>

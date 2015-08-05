@@ -175,6 +175,7 @@ button {
 	width: 600px;
 	height: 400px;
 	overflow: auto;
+	margin-right: 40px;
 }
 .arrowRight{
 	position: relative;
