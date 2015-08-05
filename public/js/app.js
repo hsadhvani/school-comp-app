@@ -209,7 +209,7 @@ function addNumbers(numberOne, numberTwo){
 
 function checkValidColor(myColor){
     if (checkHex(myColor) || colorNameToHex(myColor)) {
-    return tre;
+    return true;
     }
     else{
         return false;
