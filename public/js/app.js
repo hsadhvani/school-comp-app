@@ -68,7 +68,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 app.controller('MainCtrl', function ($scope, Page) {
     $scope.Page = Page;
     $scope.goToNextSlide = function (content) {
-        window.location.hash = content.next_page;
+        window.location.href = "/"+content.next_page;
     };
 });
 
