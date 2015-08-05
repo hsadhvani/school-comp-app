@@ -100,7 +100,7 @@ app.controller('softwareCtrl',function($scope, Page){
             "image" : "assets/thecode.png",
             "list" : ["Something","Something else","Where's the After After Party?"],
             "next_section" : "section1",
-            "next_page" : "hardware"
+            "next_page" : "software/code"
         };
 
 });
@@ -126,32 +126,34 @@ app.controller('softwareCodeCtrl',function($scope,Page){
         {
             "name" : "updateColor",
             "callFunction" : "updateColor",
-            "variableOne" : "newColor",
+            "variableOne" : {name : "newColor", tooltip : "A new color for the content"},
             "content" : ["var contentHeading = document.getElementById('contentHeading');", "contentHeading.style.color = color;"],
             "show" : false,
             "output" : "",
             "errorMessage" : { 
                 "showErrorMessage" : false,
                 "message" : ""
-            }
+            },
+            "whatDoesItDo" : "Click here to change color of content"
         },
                 {
             "name" : "updateBackgroundColor",
             "callFunction" : "updateBackgroundColor",
-            "variableOne" : "newColor",
+            "variableOne" : {name : "newColor", tooltip : "A new background color the page"},
             "content" : ["document.body.style.backgroundColor = newColor;"],
             "show" : false,
             "output" : "",
             "errorMessage" : { 
                 "showErrorMessage" : false,
                 "message" : ""
-            }
+            }, "whatDoesItDo" : "Click here to change the background color of the page"
+
         },
         {
             "name" : "addNumbers",
             "callFunction" : "addNumbers",
-            "variableOne" : "numberOne",
-            "variableTwo" : "numberTwo",
+            "variableOne" : {name  : "numberOne", tooltip: "A Number to add"},
+            "variableTwo" : {name : "numberTwo", tooltip : "A Number to add"},
             "content" : [" return numberOne + numberTwo;"],
             "show" : false,
             "showOutput" : false,
@@ -159,30 +161,30 @@ app.controller('softwareCodeCtrl',function($scope,Page){
             "errorMessage" : { 
                 "showErrorMessage" : false,
                 "message" : ""
-            }
+            }, "whatDoesItDo" : "Click here to two add these two numbers"
         },
 
     ];
     $scope.runFunction = function(what){
         if(what.variableOne && (what.name == "updateColor" || what.name == "updateBackgroundColor")){
-            if(!checkValidColor(what.variableOne)){
+            if(!checkValidColor(what.variableOne.name)){
                 what.errorMessage.showErrorMessage = true;
-                what.errorMessage.message = "Children!! "+ what.variableOne +" is not valid color.";
+                what.errorMessage.message = "Children!! "+ what.variableOne.name +" is not valid color.";
             }
             else{
                 what.errorMessage.showErrorMessage = false;
-                window[what.callFunction](what.variableOne);
+                window[what.callFunction](what.variableOne.name);
             }
         }
         else if(what.variableOne && what.variableTwo && what.name == "addNumbers"){
-            if(isNaN(what.variableOne) || isNaN(what.variableTwo)){
+            if(isNaN(what.variableOne.name) || isNaN(what.variableTwo.name)){
                 what.errorMessage.showErrorMessage = true;
                 what.errorMessage.message = "Children numbers!! Not sentences :)";
             }
             else{
                 what.showOutput = true; 
                 what.errorMessage.showErrorMessage = false;
-                what.output =  window[what.callFunction](parseInt(what.variableOne),parseInt(what.variableTwo));
+                what.output =  window[what.callFunction](parseInt(what.variableOne.name),parseInt(what.variableTwo.name));
             }
            
         }

@@ -40,3 +40,7 @@ function colorNameToHex(color) {
 function checkHex(color) {
     return /(^#[0-9A-F]{6}$)|(^#[0-9A-F]{3}$)/i.test(color);
 }
+
+function updateHash(hashValue){
+    window.location.hash = hashValue;
+}

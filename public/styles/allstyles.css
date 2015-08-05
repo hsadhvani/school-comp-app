@@ -165,6 +165,59 @@ button {
 	background: #FF5283;
 	transition: all 150ms ease;
 }
+
+
+.section2_1 {
+	width: 100%;
+	height: 100%;
+	display: table;
+}
+.section2_1 .title {
+	position: relative;
+	left: 40px;
+	top: 40px;
+	font-size: 72px;
+}
+.section2_1 .sub-title {
+	position: relative;
+	left: 45px;
+	top: 45px;
+	font-size: 28px;
+	color: white;
+}
+.section2_1 .content {
+	position: relative;
+	top: 60px;
+	left: 45px;
+	width: 40%;
+	display: inline-block;
+	color: white;
+}
+.section2_1 ul {
+	position: relative;
+	top: 60px;
+	left: 25px;
+	color: white;
+}
+.section2_1 button {
+	position: relative;
+	top: 80px;
+	left: 45px;
+	border: 2px solid white;
+	color: white;
+	background: transparent;
+	border-radius: 3px;
+	font-size: 24px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.section2_1 button:hover {
+	color: white;
+	background: #FF5283;
+	transition: all 150ms ease;
+}
 .floatLeft{
 	float: left;
 }
@@ -175,7 +228,8 @@ button {
 	width: 600px;
 	height: 400px;
 	overflow: auto;
-	margin-right: 40px;
+	margin-top : 40px;
+	margin-right: 70px;
 }
 .arrowRight{
 	position: relative;
@@ -220,4 +274,22 @@ button {
 	color:white; 
 	font-weight:bold; 
 	margin-left:5px;
+	text-decoration: none;
+}
+
+.runButton:hover{
+	text-decoration: none;
+	color: white;
+}
+.floatRight{
+	float: right;
+}
+
+.default_cursor{
+	cursor: default;
+}
+
+.type_cursor{
+	cursor: text;
+
 }
