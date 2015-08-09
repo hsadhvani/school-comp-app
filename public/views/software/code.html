@@ -28,11 +28,11 @@
                                                                               ng-model="fn.variableOne.name"
                                                                               contenteditable="true"
                                                                               onclick="document.execCommand('selectAll',false,null)"
-                                                                              class="tooltip-bottom type_cursor"
+                                                                              class="tooltip-bottom type_cursor content_editable_div"
                                                                               data-tooltip="{{fn.variableOne.tooltip}}"></span>
                         <span ng-if="fn.variableTwo">,</span>
 						<span ng-if="fn.variableTwo" ng-model="fn.variableTwo.name" contenteditable="true"
-                              onclick="document.execCommand('selectAll',false,null)" class="tooltip-bottom type_cursor"
+                              onclick="document.execCommand('selectAll',false,null)" class="tooltip-bottom type_cursor content_editable_div"
                               data-tooltip="{{fn.variableOne.tooltip}}"></span>)
                         <!--<span ng-repeat="variable in fn.variables">
                         <span id="hoverExplain" contenteditable="true" ng-model="variable"></span>{{$last ? '' : ', '}}</span>-->
