@@ -74,6 +74,7 @@ app.controller('MainCtrl', function ($scope, Page) {
 
 app.controller('noCtrl', function ($scope, Page) {
     Page.setTitle("Introduction to Computing");
+
 });
 
 
@@ -91,6 +92,9 @@ app.controller('introCtrl', function ($scope, Page) {
             "next_page" : "software",
             "buttonText" : "Next Section"
         }
+    $scope.flip = function(index){
+        $('.card'+index).flip();
+    };
 });
 
 app.controller('softwareCtrl', function ($scope, Page) {

@@ -24,7 +24,7 @@
                                 <!-- <fmp-card class="my-card" id="card-1" suffix="1" image="{{imageItem}}" small-card-width="200px" small-card-height="300px">
                                     <div class="back-text">{{leftBackText}}</div>
                                 </fmp-card> -->
-                                <div id="card"> 
+                                <div id="card" class='card{{$index+1}}'  ng-click="flip($index+1);">
                                     <div class="front"> 
                                         <img src="{{imageItem}}">
                                     </div> 
