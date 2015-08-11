@@ -7,3 +7,7 @@ var nextslide = function(to, from) {
 $(document).on('keypress', '.content_editable_div', function(e){
 	return e.which != 13;
 });
+
+$("#card").on('click',function() {
+	$("#card").flip();    
+});

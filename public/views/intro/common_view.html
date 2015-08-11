@@ -21,9 +21,17 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-lg-4" ng-repeat="imageItem in content.images track by $index">
-                                <fmp-card class="my-card" id="card-1" suffix="1" image="{{imageItem}}" small-card-width="200px" small-card-height="300px">
+                                <!-- <fmp-card class="my-card" id="card-1" suffix="1" image="{{imageItem}}" small-card-width="200px" small-card-height="300px">
                                     <div class="back-text">{{leftBackText}}</div>
-                                </fmp-card>
+                                </fmp-card> -->
+                                <div id="card"> 
+                                    <div class="front"> 
+                                        <img src="{{imageItem}}">
+                                    </div> 
+                                    <div class="back">
+                                        Back content
+                                    </div> 
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -33,3 +41,9 @@
         <button ng-click="goToNextSlide(content);">Next Section</button>
     </div>
 </div>
+<script>
+$("#card").on('click',function() {
+    console.log("lol");
+    $("#card").flip();    
+});
+</script>

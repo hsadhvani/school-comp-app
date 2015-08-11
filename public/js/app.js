@@ -1,4 +1,4 @@
-var app = angular.module('school-app', ['ngRoute','ngAnimate', 'fmp-card']);
+var app = angular.module('school-app', ['ngRoute']);
 
 app.directive("contenteditable", function () {
     return {
