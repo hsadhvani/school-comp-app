@@ -19,6 +19,105 @@ app.directive("contenteditable", function () {
         }
     };
 });
+app.directive("flip", function(){
+  
+  function setDim(element, width, height){
+    element.style.width = width;
+    element.style.height = height;
+  }
+  
+  var cssString =
+    "<style> \
+    .flip {float: left; overflow: hidden} \
+    .flipBasic { \
+    position: absolute; \
+    -webkit-backface-visibility: hidden; \
+    backface-visibility: hidden; \
+    transition: -webkit-transform .5s; \
+    transition: transform .5s; \
+    -webkit-transform: perspective( 800px ) rotateY( 0deg ); \
+    transform: perspective( 800px ) rotateY( 0deg ); \
+    } \
+    .flipHideBack { \
+    -webkit-transform:  perspective(800px) rotateY( 180deg ); \
+    transform:  perspective(800px) rotateY( 180deg ); \
+    } \
+    .flipHideFront { \
+    -webkit-transform:  perspective(800px) rotateY( -180deg ); \
+    transform:  perspective(800px) rotateY( -180deg ); \
+    } \
+    </style> \
+    ";
+    
+  document.head.insertAdjacentHTML("beforeend", cssString);
+  
+  
+  return {
+    restrict : "E",
+    controller: function($scope, $element, $attrs){
+      
+      var self = this;
+      self.front = null,
+      self.back = null;
+      
+      
+      function showFront(){
+        self.front.removeClass("flipHideFront");
+        self.back.addClass("flipHideBack");
+      }
+      
+      function showBack(){
+        self.back.removeClass("flipHideBack");
+        self.front.addClass("flipHideFront");
+      }
+      
+      self.init = function(){
+        self.front.addClass("flipBasic");
+        self.back.addClass("flipBasic");
+        
+        showFront();
+        self.front.on("click", showBack);
+        self.back.on("click", showFront);
+      }
+    
+    },
+    
+    link : function(scope,element,attrs, ctrl){
+      
+      var width = attrs.flipWidth || "100%",
+        height =  attrs.flipHeight || "200px";
+      
+      element.addClass("flip");
+      
+      if(ctrl.front && ctrl.back){
+        [element, ctrl.front, ctrl.back].forEach(function(el){
+          setDim(el[0], width, height);
+        });
+        ctrl.init();
+      }
+      else {
+        console.error("FLIP: 2 panels required.");
+      }
+      
+    }
+  }
+  
+});
+
+app.directive("flipPanel", function(){
+  return {
+    restrict : "E",
+    require : "^flip",
+    //transclusion : true,
+    link: function(scope, element, attrs, flipCtr){
+      if(!flipCtr.front) {flipCtr.front = element;}
+      else if(!flipCtr.back) {flipCtr.back = element;}
+      else {
+        console.error("FLIP: Too many panels.");
+      }
+    }
+  }
+});
 
 app.factory('Page', function () {
     var title = 'Introduction';
@@ -85,16 +184,14 @@ app.controller('introCtrl', function ($scope, Page) {
             "class" : "section1",
             "title" : "An Introduction to Computers",
             "sub_title" : "What is a computer?",
-            "content" : ["At the most basic level, a computer simply takes some input and produces some output otherwise known as I/O.  You can think of a calculator as a computer.  It accepts numbers as input, does something with that input and produces an output.", " Computers can be quite large and very small depending on what they use them for. They can be the size of your finger, or the size of a car. (PICTURES – Intel Watson/Supercomputer)", "Almost everything in the world that you use today that uses electricity has some kind of computer inside of it.  Some examples of devices that depend on various types of computers that you may find in your everyday life include:"],
-            "images" : ["assets/imac.png", "assets/tablet.png", "assets/macbook.png", "assets/chromecast.png", "assets/android.png","assets/amazon.png","assets/ipad.png","assets/tv.png","assets/calculator.png","assets/civic.png","assets/pc.png","assets/watch.png"],
+            "content" : ["At the most basic level, a computer simply takes some input and produces some output otherwise known as I/O.  You can think of a calculator as a computer.  It accepts numbers as input, does something with that input and produces an output.", " Computers can be quite large and very small depending on what they use them for. They can be the size of your finger, or the size of a car. (PICTURES – Intel Watson/Supercomputer)", "Almost everything in the world that you use today that uses electricity has some kind of computer inside of it. Click on the tiles to learn more!"],
+            "images" : ["assets/imac.png", "assets/tablet.png", "assets/macbook.png", "assets/chromecast.png"], 
+            "images2" : ["assets/android.png","assets/amazon.png","assets/ipad.png","assets/tv.png","assets/calculator.png","assets/civic.png","assets/pc.png","assets/watch.png"],
             "list" : ["TV’s","Cellphones","Automobiles", "iPads/Tablets", "Calculators", "Wireless Routers", "Smart Watches"],
             "next_section" : "section2",
             "next_page" : "software",
             "buttonText" : "Next Section"
         }
-    $scope.flip = function(index){
-        $('.card'+index).flip();
-    };
 });
 
 app.controller('softwareCtrl', function ($scope, Page) {

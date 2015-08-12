@@ -13,28 +13,36 @@
                     <div class="content" ng-repeat="contentItem in content.content">
                         <div>{{contentItem}}</div>
                     </div>
-                    <ul ng-repeat="listItem in content.list">
-                        <li>{{listItem}}</li>
-                    </ul>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6" style="padding: 0;">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-lg-4" ng-repeat="imageItem in content.images track by $index">
-                                <!-- <fmp-card class="my-card" id="card-1" suffix="1" image="{{imageItem}}" small-card-width="200px" small-card-height="300px">
-                                    <div class="back-text">{{leftBackText}}</div>
-                                </fmp-card> -->
-                                <div id="card" class='card{{$index+1}}'  ng-click="flip($index+1);">
-                                    <div class="front"> 
+                            <div class="col-lg-6" ng-repeat="imageItem in content.images track by $index">
+                                <flip>
+                                    <flip-panel>
+                                        <div>{{$index+1}}</div>
+                                    </flip-panel>
+                                    <flip-panel>
                                         <img src="{{imageItem}}">
-                                    </div> 
-                                    <div class="back">
-                                        Back content
-                                    </div> 
-                                </div>
+                                    </flip-panel>
+                                </flip>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3" ng-repeat="imageItem in content.images2 track by $index">
+                    <flip>
+                        <flip-panel>
+                            <div>{{$index+5}}</div>
+                        </flip-panel>
+                        <flip-panel>
+                            <img src="{{imageItem}}">
+                        </flip-panel>
+                    </flip>
                 </div>
             </div>
         </div>
