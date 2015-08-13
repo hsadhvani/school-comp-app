@@ -17,13 +17,23 @@
                 <div class="col-lg-6" style="padding: 0;">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-lg-6" ng-repeat="imageItem in content.images track by $index">
+                            <div class="col-lg-6" ng-repeat="item in content.cells1 track by $index">
                                 <flip>
                                     <flip-panel>
-                                        <div>{{$index+1}}</div>
+                                        <div class="number">{{$index+1}}</div>
                                     </flip-panel>
                                     <flip-panel>
-                                        <img src="{{imageItem}}">
+                                        <img src="{{item.pic}}">
+                                        <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="logo"><img src="{{item.logo}}"></div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="link youtube" rel="{{item.rel}}" ng-click="$event.preventDefault(); $event.stopPropagation(); remove();" onclick="youtube();">Learn More</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     </flip-panel>
                                 </flip>
                             </div>
@@ -34,13 +44,23 @@
         </div>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-3" ng-repeat="imageItem in content.images2 track by $index">
+                <div class="col-lg-3" ng-repeat="item in content.cells2 track by $index">
                     <flip>
                         <flip-panel>
-                            <div>{{$index+5}}</div>
+                            <div class="number">{{$index+5}}</div>
                         </flip-panel>
                         <flip-panel>
-                            <img src="{{imageItem}}">
+                            <img src="{{item.pic}}">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="logo"><img src="{{item.logo}}"></div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="link youtube" rel="{{item.rel}}" ng-click="$event.preventDefault(); $event.stopPropagation(); remove();" onclick="youtube();">Learn More</div>
+                                    </div>
+                                </div>
+                            </div>
                         </flip-panel>
                     </flip>
                 </div>
@@ -49,3 +69,8 @@
         <button ng-click="goToNextSlide(content);">Next Section</button>
     </div>
 </div>
+<script>
+        function youtube() {
+            $(".youtube").YouTubeModal({autoplay:0, width:640, height:480});
+        }
+</script>

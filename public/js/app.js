@@ -94,11 +94,9 @@ app.directive("flip", function(){
           setDim(el[0], width, height);
         });
         ctrl.init();
-      }
-      else {
+      } else {
         console.error("FLIP: 2 panels required.");
       }
-      
     }
   }
   
@@ -185,8 +183,42 @@ app.controller('introCtrl', function ($scope, Page) {
             "title" : "An Introduction to Computers",
             "sub_title" : "What is a computer?",
             "content" : ["At the most basic level, a computer simply takes some input and produces some output otherwise known as I/O.  You can think of a calculator as a computer.  It accepts numbers as input, does something with that input and produces an output.", " Computers can be quite large and very small depending on what they use them for. They can be the size of your finger, or the size of a car. (PICTURES – Intel Watson/Supercomputer)", "Almost everything in the world that you use today that uses electricity has some kind of computer inside of it. Click on the tiles to learn more!"],
-            "images" : ["assets/imac.png", "assets/tablet.png", "assets/macbook.png", "assets/chromecast.png"], 
-            "images2" : ["assets/android.png","assets/amazon.png","assets/ipad.png","assets/tv.png","assets/calculator.png","assets/civic.png","assets/pc.png","assets/watch.png"],
+            "cells1" : [{"pic" :"assets/imac.png",
+                        "rel" : "jZ5n6sxZyEQ",
+                        "logo": "assets/logo/imac.png"},
+                        {"pic" : "assets/tablet.png",
+                        "rel": "gLBuj69mOPg",
+                        "logo": "assets/logo/experia.jpg"},
+                        {"pic" : "assets/macbook.png",
+                        "rel" : "mWX2S3c6cS0",
+                        "logo": "assets/logo/macbookpro.png"},
+                        {"pic" : "assets/chromecast.png",
+                        "rel" : "5qZG3sJpHIo",
+                        "logo": "assets/logo/chromecast.png"}], 
+            "cells2" : [{"pic" : "assets/android.png",
+                        "rel" : "PrOwlDxZUYg",
+                        "logo": "assets/logo/nexus.png"},
+                        {"pic": "assets/amazon.png",
+                        "rel" : "quWFjS3Ci7A",
+                        "logo": "assets/logo/amazon.png"},
+                        {"pic": "assets/ipad.png",
+                        "rel" : "vINuro58nng",
+                        "logo": "assets/logo/ipad.png"},
+                        {"pic": "assets/tv.png",
+                        "rel" : "ARmROQpFCJc",
+                        "logo": "assets/logo/samsung.jpg"},
+                        {"pic": "assets/calculator.png",
+                        "rel" : "HZrml020C0s",
+                        "logo": "assets/logo/ti.png"},
+                        {"pic": "assets/civic.png",
+                        "rel" : "KhdBZxpKC-s",
+                        "logo": "assets/logo/civic.jpg"},
+                        {"pic": "assets/pc.png",
+                        "rel" : "Qx4tE8JD71s",
+                        "logo": "assets/logo/windows.png"},
+                        {"pic": "assets/watch.png",
+                        "rel" : "1Ql0Z8Il73s",
+                        "logo": "assets/logo/watch.png"}],
             "list" : ["TV’s","Cellphones","Automobiles", "iPads/Tablets", "Calculators", "Wireless Routers", "Smart Watches"],
             "next_section" : "section2",
             "next_page" : "software",
