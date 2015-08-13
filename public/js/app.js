@@ -162,6 +162,10 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
             templateUrl: "views/hardware/hardware_more.html",
             controller: "hardwareCtrl"
         })
+        .when("/thanks" , {
+            templateUrl: "views/thanks.html",
+            controller : "noCtrl"
+        })
         .otherwise({redirectTo: "/"});
 }]);
 
@@ -177,6 +181,7 @@ app.controller('noCtrl', function ($scope, Page) {
     Page.setTitle("Introduction to Computing");
 
 });
+
 
 
 app.controller('introCtrl', function ($scope, Page) {
