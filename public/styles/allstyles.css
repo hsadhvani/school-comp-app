@@ -376,14 +376,14 @@ button {
 }
 
 .hardware-component{
-	min-height: 180px;
+	height: 200px;
 	position: relative;
 	left:40px;
-	max-width: 80%;
 }
 
 .hardware-image{
-	max-height: 200px;
+	max-height: 250px;
+	max-width: 200px;
 	padding: 5px;
 }
 
@@ -401,4 +401,7 @@ button {
 	color: #BF9106;
 	font-family: 'Varela Round', sans-serif;
 	margin-top: 10px;
+}
+.hardware-hover-image{
+	height: 300px;
 }
