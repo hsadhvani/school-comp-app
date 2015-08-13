@@ -1,35 +1,32 @@
 <div>
     <div class="section2_1">
-        <div class="title">Introduction to Hardware</div>
-        <div class="sub-title">Basic Information</div>
-        <div class="content">
-            <p>When you start a puzzle, you always start by putting all of your puzzle pieces together on a table. The same applies to the way we build a computer. Every piece of the puzzle needs to be put in the right spot in order to get a computer to run properly.</p>
-            <p>We discussed in the earlier section that computers required Input and Output. But where does that Input actually go when it gets submitted to a computer. What puzzle pieces make up a computer and what do they actually do? How do they all work together? </p>
-            <p>A computers puzzle pieces include 3 main categories: I/O, Processing, and Storage.</p>
-
-        </div>
-
-        <div class="container" style="position:relative;top:75px;">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-xs-6">
-                    <div class="row">
-                        <div class="col-xs-6"  ng-repeat="component in hardwareComponents">
+                <div class="col-lg-12">
+                    <div class="title">Introduction to Hardware</div>
+                    <div class="sub-title">Basic Information</div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="content">
+                    <p>When you start a puzzle, you always start by putting all of your puzzle pieces together on a table. The same applies to the way we build a computer. Every piece of the puzzle needs to be put in the right spot in order to get a computer to run properly.</p>
+                    <p>We discussed in the earlier section that computers required Input and Output. But where does that Input actually go when it gets submitted to a computer. What puzzle pieces make up a computer and what do they actually do? How do they all work together? </p>
+                    <p>A computers puzzle pieces include 3 main categories: I/O, Processing, and Storage.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="container-fluid">
+                        <div class="col-lg-6" ng-repeat="component in hardwareComponents">
                             <div class="mini-box" style="text-align:center">
                                 <span class="tooltip-right type_cursor content_editable_div ng-pristine ng-valid ng-scope ng-touched col" data-tooltip="{{component.desc}}">
                                     <b>{{component.name}}</b><br/>
                                     <img ng-src="{{component.image}}" class="hardware-component">
                                 </span>
-
                             </div>
                         </div>
-                        
                     </div>
                 </div>
             </div>
+            <button onclick="updateLink('hardware/more');">Learn More About Hardware</button>
         </div>
-        <ul>
-        </ul>
-        <button onclick="updateLink('hardware/more');">Learn More About Hardware</button>
-
     </div>
 </div>

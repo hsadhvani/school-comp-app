@@ -1,78 +1,81 @@
 <div>
     <div class="section2_1">
-        <div class="title">Software</div>
-        <div class="sub-title">Programming</div>
-        <div class="content">
-            <div id="contentHeading">
-                Kids now it's time to challenge yourself. Your learned what a programming language is previously. Now
-                let's try to do some basic coding.
-                Your computer's browser like Google Chrome/Firefox/Internet Explorer/Safari understand only a few
-                languages which is mainly HTML, CSS and JavaScript. You don't need to worry about these languages and
-                you don't speak them. We will learn a basic programming concept using this analogy.
-                <div style="padding-top: 10px;">
-                    First thing to understand is function. You can see various functions on your right. Give them some
-                    values and see what happens.
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="sub-title">Programming</div>
                 </div>
             </div>
         </div>
-
-        <ul>
-        </ul>
-
-        <div class="termianlView floatRight default_cursor">
-            <div ng-repeat="fn in functions" class="pad_t">
-                <div class="pad_t pad_l" ng-init="showThis=false">
-                    <div class="floatLeft pointer">
-                        <a data-tooltip="Click here to what's inside the function" class="tooltip-right">
-                            <img class="arrowRight" src="/images/grey_arrow.png" ng-click="fn.show =  !fn.show"/>
-                        </a>
-                    </div>
-                    <div class="floatLeft pad_l_3">function {{fn.name}}(<span ng-if="fn.variableOne"
-                                                                              ng-model="fn.variableOne.name"
-                                                                              contenteditable="true"
-                                                                              onclick="document.execCommand('selectAll',false,null)"
-                                                                              class="tooltip-bottom type_cursor content_editable_div"
-                                                                              data-tooltip="{{fn.variableOne.tooltip}}"></span>
-                        <span ng-if="fn.variableTwo">,</span>
-						<span ng-if="fn.variableTwo" ng-model="fn.variableTwo.name" contenteditable="true"
-                              onclick="document.execCommand('selectAll',false,null)" class="tooltip-bottom type_cursor content_editable_div"
-                              data-tooltip="{{fn.variableOne.tooltip}}"></span>)
-                        <!--<span ng-repeat="variable in fn.variables">
-                        <span id="hoverExplain" contenteditable="true" ng-model="variable"></span>{{$last ? '' : ', '}}</span>-->
-                    </div>
-                    <a
-                            data-tooltip="{{fn.whatDoesItDo}}" ng-click="runFunction(fn)"
-                            class="pointer runButton floatLeft tooltip-right">
-                        Run This
-                    </a>
-                </div>
-                <br/>
-
-                <div class="fnContents">
-                    <div class="fnDef" ng-show="fn.show">
-                        {
-                        <div ng-repeat="line in fn.content" class="fnContent">
-                            {{line}}
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="content">
+                        <div id="contentHeading">
+                            Kids now it's time to challenge yourself. Your learned what a programming language is previously. Now
+                            let's try to do some basic coding.
+                            Your computer's browser like Google Chrome/Firefox/Internet Explorer/Safari understand only a few
+                            languages which is mainly HTML, CSS and JavaScript. You don't need to worry about these languages and
+                            you don't speak them. We will learn a basic programming concept using this analogy.
+                            <div style="padding-top: 10px;">
+                                First thing to understand is function. You can see various functions on your right. Give them some
+                                values and see what happens.
+                            </div>
                         </div>
-                        }
                     </div>
-                    <div class="fnOutput" ng-show="fn.showOutput">
-                        Output : {{fn.output}}
-                    </div>
-                    <div class="fnError" ng-show="fn.errorMessage.showErrorMessage">
-                        <span style="color:red;">Error : </span> {{fn.errorMessage.message}}
+                    <button onclick="updateLink('hardware');">Next Section</button>
+                </div>
+                <div class="col-lg-6">
+                    <div class="termianlView floatRight default_cursor">
+                        <div class="topbar"><img src="assets/bar.png" width="100%;"></div>
+                        <div ng-repeat="fn in functions" class="pad_t">
+                            <div class="pad_t pad_l" ng-init="showThis=false">
+                                <div class="floatLeft pointer">
+                                    <a data-tooltip="Click here to what's inside the function" class="tooltip-right">
+                                        <img class="arrowRight" src="/images/grey_arrow.png" ng-click="fn.show =  !fn.show"/>
+                                    </a>
+                                </div>
+                                <div class="floatLeft pad_l_3">function {{fn.name}}(<span ng-if="fn.variableOne"
+                                                                                          ng-model="fn.variableOne.name"
+                                                                                          contenteditable="true"
+                                                                                          onclick="document.execCommand('selectAll',false,null)"
+                                                                                          class="tooltip-bottom type_cursor content_editable_div"
+                                                                                          data-tooltip="{{fn.variableOne.tooltip}}"></span>
+                                    <span ng-if="fn.variableTwo">,</span>
+                                    <span ng-if="fn.variableTwo" ng-model="fn.variableTwo.name" contenteditable="true"
+                                          onclick="document.execCommand('selectAll',false,null)" class="tooltip-bottom type_cursor content_editable_div"
+                                          data-tooltip="{{fn.variableOne.tooltip}}"></span>)
+                                    <!--<span ng-repeat="variable in fn.variables">
+                                    <span id="hoverExplain" contenteditable="true" ng-model="variable"></span>{{$last ? '' : ', '}}</span>-->
+                                </div>
+                                <a
+                                        data-tooltip="{{fn.whatDoesItDo}}" ng-click="runFunction(fn)"
+                                        class="pointer runButton floatLeft tooltip-right">
+                                    Run This
+                                </a>
+                            </div>
+                            <br/>
+
+                            <div class="fnContents">
+                                <div class="fnDef" ng-show="fn.show">
+                                    {
+                                    <div ng-repeat="line in fn.content" class="fnContent">
+                                        {{line}}
+                                    </div>
+                                    }
+                                </div>
+                                <div class="fnOutput" ng-show="fn.showOutput">
+                                    Output : {{fn.output}}
+                                </div>
+                                <div class="fnError" ng-show="fn.errorMessage.showErrorMessage">
+                                    <span style="color:red;">Error : </span> {{fn.errorMessage.message}}
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
-        <button onclick="updateLink('hardware');">Next Section</button>
     </div>
 </div>
-
-
-<style>
-    body {
-        background: #CC4EB1;
-    }
-</style>
