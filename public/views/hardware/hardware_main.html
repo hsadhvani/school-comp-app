@@ -15,12 +15,12 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="container-fluid">
-                        <div class="col-lg-6" ng-repeat="component in hardwareComponents">
+                        <div class="col-lg-6 col-sm-12 col-xs-12" ng-repeat="component in hardwareComponents">
                             <div class="mini-box" style="text-align:center">
                             <div class="hardware-hover-image">
                                 <span class="tooltip-top type_cursorcol" data-tooltip="{{component.desc}}">
                                     <b>{{component.name}}</b><br/>
-                                    <img ng-src="{{component.image}}" class="hardware-component">
+                                    <img ng-src="{{component.image}}" class="hardware-component" style="margin: auto; text-align: center;">
                                 </span>
                             </div>
                             </div>
