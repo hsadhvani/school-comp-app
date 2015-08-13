@@ -262,22 +262,22 @@ app.controller('hardwareMainCtrl', function ($scope, Page) {
     $scope.hardwareComponents = [
             {
                 "name" : "Motherboard",
-                "image" : "assets/motherboard.png",
+                "image" : "assets/motherboard_big.png",
                 "desc" : "Every piece of computer equipment is plugged into the motherboard so that each piece of equipment can communicate with each other." 
             },
             {
                 "name":"RAM",
-                "image" : "assets/ram.png",
+                "image" : "assets/ram_big.png",
                 "desc" : "RAM (Random Access memory) type of memory is used to store the code of any applications currently running.  Since your processor performs tasks rapidly, it needs a speedy way of pulling and storing information.  "
             },
             {
                 "name" : "CPU",
-                "image" : "assets/proc.png",
+                "image" : "assets/processor.png",
                 "desc" : "Known as the “Brain” or “CPU”.  Your computers processor will perform tasks like multiplying a number or converting 1’s and 0’s into numbers or words extremely quickly.  Every component of your computer requires the brain so without your processor, the computer would stop working completely! "
             },
             {
                 "name" : "Storage",
-                "image" : "assets/storage.png",
+                "image" : "assets/hd_big.png",
                 "desc" : "When your computer is turned off, the information stored in this part of the computer will stay.  This is where all of your pictures, videos, and applications are stored until they are manually deleted by their owner."
             }
         ];
