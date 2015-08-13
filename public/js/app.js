@@ -191,7 +191,7 @@ app.controller('introCtrl', function ($scope, Page) {
             "class" : "section1",
             "title" : "An Introduction to Computers",
             "sub_title" : "What is a computer?",
-            "content" : ["At the most basic level, a computer simply takes some input and produces some output otherwise known as I/O.  You can think of a calculator as a computer.  It accepts numbers as input, does something with that input and produces an output.", " Computers can be quite large and very small depending on what they use them for. They can be the size of your finger, or the size of a car. (PICTURES – Intel Watson/Supercomputer)", "Almost everything in the world that you use today that uses electricity has some kind of computer inside of it. Click on the tiles to learn more!"],
+            "content" : ["At the most basic level, a computer simply takes some input and produces some output otherwise known as I/O.  You can think of a calculator as a computer.  It accepts numbers as input, does something with that input and produces an output.", " Computers can be quite large and very small depending on what they use them for. They can be the size of your finger, or the size of a car.", "Almost everything in the world that you use today that uses electricity has some kind of computer inside of it. Click on the tiles to learn more!"],
             "cells1" : [{"pic" :"assets/imac.png",
                         "rel" : "jZ5n6sxZyEQ",
                         "logo": "assets/logo/imac.png"},
