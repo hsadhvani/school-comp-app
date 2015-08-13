@@ -155,7 +155,11 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
 
         })
         .when("/hardware", {
-            templateUrl: "views/common_view.html",
+            templateUrl: "views/hardware/hardware_main.html",
+            controller: "hardwareMainCtrl"
+        })
+        .when("/hardware/more", {
+            templateUrl: "views/hardware/hardware_more.html",
             controller: "hardwareCtrl"
         })
         .otherwise({redirectTo: "/"});
@@ -245,21 +249,36 @@ app.controller('softwareCtrl', function ($scope, Page) {
 });
 
 app.controller('hardwareCtrl', function ($scope, Page) {
-    nextslide('.section2', '.main');
     Page.setTitle("Introduction to Hardware");
-    $scope.content = {
-        "class": "section1",
-        "title": "Hardware",
-        "sub-title": "What is hardware?",
-        "content": "Lorem ipsum dolor sit amet, qui utinam corpora te, vel iriure suavitate in, pro zril cetero an. Eum an quodsi vulputate reformidans, ipsum simul omittam ne sed. Vel ne ancillae probatus. Cum suavitate adipiscing in, dico solum tation et ius, te ipsum novum iudico mel. Sea mazim ignota dissentias et. Volumus adolescens ea usu, essent dissentiunt his et. Ei insolens forensibus sea. In nec scripta feugait albucius, et nam purto utinam facete. An has elitr forensibus, vim alterum vivendum laboramus an. Mei no nemore diceret aliquid, scripta dolores sit ex. Ad lobortis delicata sit, ne quando volutpat erroribus vis. Delenit constituam ne per. Nibh congue detraxit cu vim, probatus intellegat est ut, te rebum graeci reprimique sea.",
-        "image": "assets/thecode.png",
-        "list": ["Something", "Something else", "Where's the After After Party?"],
-        "next_section": "",
-        "next_page": "",
-        "buttonText" : "Next Section"
-
-    };
 });
+
+app.controller('hardwareMainCtrl', function ($scope, Page) {
+    Page.setTitle("Introduction to Hardware");
+    $scope.hardwareComponents = [
+            {
+                "name" : "Motherboard",
+                "image" : "assets/motherboard.png",
+                "desc" : "Every piece of computer equipment is plugged into the motherboard so that each piece of equipment can communicate with each other." 
+            },
+            {
+                "name":"RAM",
+                "image" : "assets/ram.png",
+                "desc" : "RAM (Random Access memory) type of memory is used to store the code of any applications currently running.  Since your processor performs tasks rapidly, it needs a speedy way of pulling and storing information.  "
+            },
+            {
+                "name" : "CPU",
+                "image" : "assets/proc.png",
+                "desc" : "Known as the “Brain” or “CPU”.  Your computers processor will perform tasks like multiplying a number or converting 1’s and 0’s into numbers or words extremely quickly.  Every component of your computer requires the brain so without your processor, the computer would stop working completely! "
+            },
+            {
+                "name" : "Storage",
+                "image" : "assets/storage.png",
+                "desc" : "When your computer is turned off, the information stored in this part of the computer will stay.  This is where all of your pictures, videos, and applications are stored until they are manually deleted by their owner."
+            }
+        ];
+});
+
+
 
 
 app.controller('softwareCodeCtrl', function ($scope, Page) {

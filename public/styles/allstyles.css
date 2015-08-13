@@ -211,6 +211,7 @@ button {
 
 .section2_1 {
 	width: 100%;
+	background: #CC4EB1;
 	height: 100%;
 	display: table;
 }
@@ -350,6 +351,24 @@ button {
 	min-width: 100%;
 }
 .flipBasic {
+<<<<<<< HEAD
 	background-color: transparent;
 	outline: 1px solid #E0E0E0;
 }
+=======
+	background-color: #E0E0E0;
+	outline: 1px solid black;
+}
+
+.hardware-points{
+	width: 40%;
+}
+
+.hardware-component{
+	width: 77px;
+	position: relative;
+	left:40px;
+	height: 65px;
+}
+
+>>>>>>> origin/master
